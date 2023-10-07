@@ -1,0 +1,8 @@
+{
+    "name": "Decobot Utilities",
+    "developer": "Robin Painter",
+    "version": "1.0.0",
+    "support": "https://github.com/Bit-Plugins/Decobot-Utilities",
+    "events": true,
+    "commands": true
+}
