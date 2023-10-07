@@ -1,5 +1,5 @@
 const { EmbedBuilder, Message, AttachmentBuilder } = require('discord.js');
-const { embedColor, ownerID, logsID, guildId, welcomeID } = require('.../config');
+const { embedColor, botIDs } = require('./config');
 const { createCanvas, Image, GlobalFonts } = require('@napi-rs/canvas');
 const { readFile } = require('fs/promises');
 const { request } = require('undici');
@@ -17,7 +17,7 @@ module.exports = {
 		const canvas = createCanvas(700, 250);
 		const context = canvas.getContext('2d');
 
-		const background = await readFile('./assets/images/unity.png');
+		const background = await readFile('./plugins/decobot-utilities/assets/images/unity.png');
 		const backgroundImage = new Image();
 		backgroundImage.src = background;
 		context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);

@@ -1,7 +1,7 @@
 const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder, ChannelType } = require('discord.js');
 const { commandMetrics, logFunction } = require('../functions.js')
 const ms = require("ms");
-const locale = require('../locale/en.json')
+const locale = require('./plugins/decobot-utilities/locale/en.json')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
 

@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const SQLite = require("better-sqlite3");
 const { EmbedBuilder, ModalBuilder, ActionRowBuilder, TextInputComponent, ButtonBuilder, ButtonStyle } = require('discord.js')
-const { embedColor, botIDs } = require('.../config');
+const { embedColor, botIDs } = require('./config');
 const { version } = require('../info');
 const sql = new SQLite('./bot.sqlite');
 

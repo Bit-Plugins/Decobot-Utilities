@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, botIDs } = require('.../config');
+const { embedColor, botIDs } = require('./config');
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
 

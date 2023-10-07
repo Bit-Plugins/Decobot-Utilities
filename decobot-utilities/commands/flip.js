@@ -1,6 +1,6 @@
 const { commandMetrics } = require('../functions.js')
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js')
-const locale = require('../locale/en.json')
+const locale = require('./plugins/decobot-utilities/locale/en.json')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
 
