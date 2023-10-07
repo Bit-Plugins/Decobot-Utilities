@@ -1,5 +1,5 @@
 const { EmbedBuilder, Message, AttachmentBuilder } = require('discord.js');
-const { embedColor, botIDs } = require('./config');
+const { embedColours, botIDs } = require('../config');
 const { createCanvas, Image, GlobalFonts } = require('@napi-rs/canvas');
 const { readFile } = require('fs/promises');
 const { request } = require('undici');
@@ -31,7 +31,7 @@ module.exports = {
 				font: "Arial",
 				colour: "#e2c522",
 				borderColour: "#3e6ab4",
-				text: "Welcome, "+member.username,
+				text: "Welcome, "+user.username,
 			},
 			subtitle: {
 				x: canvas.width / 2,
@@ -96,16 +96,16 @@ module.exports = {
 		const attachment = new AttachmentBuilder(canvas.toBuffer('image/png'), { name: 'profile-image.png' });
 
 		const embed = new EmbedBuilder()
-			.setColor(embedColor)
+			.setColor(embedColours.main)
 			.setDescription("A user named <@"+user.id+"> joined the server.")
 			.setFooter({ text: 'User ID '+ user.id })
 			.setTimestamp();
-		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
+		client.channels.cache.get("898761298412728331").send({ embeds: [embed] })
 		
 		/*const embed2 = new EmbedBuilder()
 			.setDescription('# Welcome <@'+user.id+'> to '+member.guild.name)
 			.setTimestamp();*/
-		client.channels.cache.get(botIDs.welcome).send({ content: 'Welcome <@'+member.user.id+'>', files: [attachment] })
+		client.channels.cache.get("835464489821405238").send({ content: 'Welcome <@'+member.user.id+'>', files: [attachment] })
 		return;
 
 		/*var logsID = '683458185763225617'
