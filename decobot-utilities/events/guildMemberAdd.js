@@ -31,7 +31,7 @@ module.exports = {
 				font: "Arial",
 				colour: "#e2c522",
 				borderColour: "#3e6ab4",
-				text: "Welcome, "+user.username,
+				text: "Welcome, "+member.displayName,
 			},
 			subtitle: {
 				x: canvas.width / 2,
