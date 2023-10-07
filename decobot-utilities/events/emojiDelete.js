@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, ownerID, logsID, guildId } = require('../config');
+const { embedColor, botIDs } = require('.../config');
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
 
@@ -12,7 +12,7 @@ module.exports = {
 			.setDescription("An Emoji named "+emoji.name+" was deleted.")
 			.setFooter({ text: 'Emoji ID '+emoji.id })
 			.setTimestamp();
-		client.channels.cache.get(logsID).send({ embeds: [embed] });
+		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] });
 		return;
 	},
 };

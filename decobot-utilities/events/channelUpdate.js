@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, ownerID, logsID, guildId } = require('../config');
+const { embedColor, botIDs } = require('.../config');
 
 module.exports = {
 	name: 'channelUpdate',
@@ -53,7 +53,7 @@ module.exports = {
 			{ value: 30, name: "Unknown"},
 		];
 
-		if(newChannel.guild.id !== guildId) {
+		if(newChannel.guild.id !== botIDs.guild) {
 			return;
 		}
 
@@ -94,7 +94,7 @@ module.exports = {
 			}
 			embed.setFooter({ text: 'Channel ID '+newChannel.id})
 			embed.setTimestamp();
-			client.channels.cache.get(logsID).send({ embeds: [embed] });
+			client.channels.cache.get(botIDs.logs).send({ embeds: [embed] });
 			return;
 		}
 	}

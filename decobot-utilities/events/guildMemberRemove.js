@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, ownerID, logsID, guildId } = require('../config');
+const { embedColor, botIDs } = require('.../config');
 
 module.exports = {
 	name: 'guildMemberRemove',
@@ -7,7 +7,7 @@ module.exports = {
 		const client = member.client
 		const user = member.user
 
-		if(member.guild.id != guildId) {
+		if(member.guild.id != botIDs.guild) {
 			return;
 		}
 
@@ -15,7 +15,7 @@ module.exports = {
 			.setColor(embedColor)
 			.setDescription("A user named <@"+user.id+"> left the server.")
 			.setTimestamp();
-		client.channels.cache.get(logsID).send({ embeds: [embed] })
+		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
 		return;
 	}
 }

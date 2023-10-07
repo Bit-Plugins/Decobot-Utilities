@@ -1,11 +1,11 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, ownerID, logsID, guildId } = require('../config');
+const { embedColor, botIDs } = require('.../config');
 
 module.exports = {
 	name: 'roleDelete',
 	execute(role) {
 		const client = role.client
-		if(role.guild.id !== guildId) {
+		if(role.guild.id !== botIDs.guild) {
 			return;
 		}
 
@@ -16,7 +16,7 @@ module.exports = {
 			}
 			embed.setFooter({ text: 'Role ID '+ role.id })
 			embed.setTimestamp();
-		client.channels.cache.get(logsID).send({ embeds: [embed] })
+		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
 		return;
 	}
 }

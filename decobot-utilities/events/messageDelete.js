@@ -1,12 +1,12 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, ownerID, logsID, guildId } = require('../config');
+const { embedColor, botIDs } = require('.../config');
 
 module.exports = {
 	name: 'messageDelete',
 	execute(message) {
 		const client = message.client
 		const user = message.user
-		if(message.guild.id != guildId) {
+		if(message.guild.id != botIDs.guild) {
 			return;
 		}
 
@@ -21,13 +21,13 @@ module.exports = {
 				embed0.addFields({ name: 'Content', value: 'Message Content was not cached so it cannot be displayed', inline: false })
 			}
 			embed0.setTimestamp();
-		client.channels.cache.get(logsID).send({ embeds: [embed0] })
+		client.channels.cache.get(botIDs.logs).send({ embeds: [embed0] })
 		if(message.cleanContent.length > 1024) {
 			const embed1 = new EmbedBuilder()
 				.setTitle("Message Deleted | Message Content")
 				//.setColor(embedColor)
 				.setDescription(message.cleanContent)
-			client.channels.cache.get(logsID).send({ embeds: [embed1] })
+			client.channels.cache.get(botIDs.logs).send({ embeds: [embed1] })
 		}
 		return;
 	}

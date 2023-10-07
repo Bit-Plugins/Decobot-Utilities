@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, ownerID, logsID, guildId } = require('../config');
+const { embedColor, botIDs } = require('.../config');
 
 module.exports = {
 	name: 'roleUpdate',
@@ -18,7 +18,7 @@ module.exports = {
 		var nname = newRole.name
 		var oname = oldRole.name
 
-		if(newRole.guild.id !== guildId) {
+		if(newRole.guild.id !== botIDs.guild) {
 			return;
 		}
 
@@ -70,7 +70,7 @@ module.exports = {
 					}
 					embed.setFooter({ text: 'Role ID '+ newRole.id })
 					embed.setTimestamp();
-				client.channels.cache.get(logsID).send({ embeds: [embed] })
+				client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
 				return;
 		}
 	}

@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, ownerID, logsID, guildId } = require('../config');
+const { embedColor, botIDs } = require('.../config');
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
 
@@ -11,7 +11,7 @@ module.exports = {
 			.setColor(embedColor)
 			.setDescription("An invite was deleted.\nhttps://discord.gg/"+invite.code)
 			.setTimestamp();
-		client.channels.cache.get(logsID).send({ embeds: [embed] });
+		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] });
 		return;
 	},
 };

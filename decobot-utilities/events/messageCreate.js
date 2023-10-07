@@ -22,7 +22,7 @@ module.exports = {
                 const embed = new EmbedBuilder()
                     .setTitle('New Message from Lockyz Dev')
                     .setDescription(message.cleanContent)
-                client.channels.cache.get(logsID).send({ embeds: [embed] })
+                client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
             }
         }
 
@@ -68,7 +68,7 @@ module.exports = {
                     .setTimestamp()
                     .setFooter('User ID '+ message.member.id)
                     .setTimestamp();
-                client.channels.cache.get(logsID).send({ embeds: [embed] });
+                client.channels.cache.get(botIDs.logs).send({ embeds: [embed] });
             }
         }
         

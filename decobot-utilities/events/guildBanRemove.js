@@ -1,11 +1,11 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, ownerID, logsID, guildId } = require('../config');
+const { embedColor, botIDs } = require('.../config');
 
 module.exports = {
 	name: 'guildBanRemove',
 	execute(ban) {
 		const client = ban.client
-		if(ban.guild.id !== guildId) {
+		if(ban.guild.id !== botIDs.guild) {
 			return;
 		}
 
@@ -22,7 +22,7 @@ module.exports = {
 			.setDescription("A user named "+ban.user.username+" was unbanned"+banReason)
 			embed.setTimestamp()
 			embed.setFooter({ text: 'Ban ID '+'Currently Unavailable' })
-		client.channels.cache.get(logsID).send({ embeds: [embed] })
+		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
 		return;
 	}
 }

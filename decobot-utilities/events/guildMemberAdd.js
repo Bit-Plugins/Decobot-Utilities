@@ -1,5 +1,5 @@
 const { EmbedBuilder, Message, AttachmentBuilder } = require('discord.js');
-const { embedColor, ownerID, logsID, guildId, welcomeID } = require('../config');
+const { embedColor, ownerID, logsID, guildId, welcomeID } = require('.../config');
 const { createCanvas, Image, GlobalFonts } = require('@napi-rs/canvas');
 const { readFile } = require('fs/promises');
 const { request } = require('undici');
@@ -10,7 +10,7 @@ module.exports = {
 		const client = member.client
 		const user = member.user
 
-		if(member.guild.id != guildId) {
+		if(member.guild.id != botIDs.guild) {
 			return;
 		}
 
@@ -100,16 +100,16 @@ module.exports = {
 			.setDescription("A user named <@"+user.id+"> joined the server.")
 			.setFooter({ text: 'User ID '+ user.id })
 			.setTimestamp();
-		client.channels.cache.get(logsID).send({ embeds: [embed] })
+		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
 		
 		/*const embed2 = new EmbedBuilder()
 			.setDescription('# Welcome <@'+user.id+'> to '+member.guild.name)
 			.setTimestamp();*/
-		client.channels.cache.get(welcomeID).send({ content: 'Welcome <@'+member.user.id+'>', files: [attachment] })
+		client.channels.cache.get(botIDs.welcome).send({ content: 'Welcome <@'+member.user.id+'>', files: [attachment] })
 		return;
 
 		/*var logsID = '683458185763225617'
-		var welcomeID = '683458023636860981'
+		var botIDs.welcome = '683458023636860981'
 
 		const embed = new EmbedBuilder()
 			.setTitle('Member Joined | '+user.username, user.avatarURL())
@@ -117,13 +117,13 @@ module.exports = {
 			.setColor(embedColor)
 			.setFooter({ text: 'User ID '+ user.id })
 			.setTimestamp();
-		client.channels.cache.get(logsID).send({ embeds: [embed] })
+		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
 		
 		const embed2 = new EmbedBuilder()
             .setDescription("Welcome to " + member.guild.name + ", make sure to read <#889441596683190332>\nDO NOT ask for updates or backports")
             .setColor(embedColor)
             .setTimestamp()
-		client.channels.cache.get(welcomeID).send({ content: 'Welcome <@'+member.id+'>', embeds: [embed2]})
+		client.channels.cache.get(botIDs.welcome).send({ content: 'Welcome <@'+member.id+'>', embeds: [embed2]})
 		return;*/
 	}
 }

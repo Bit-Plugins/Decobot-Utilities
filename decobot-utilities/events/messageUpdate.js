@@ -1,5 +1,5 @@
 const { EmbedBuilder, Message, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const { embedColor, ownerID, logsID, guildId } = require('../config');
+const { embedColor, botIDs } = require('.../config');
 
 module.exports = {
 	name: 'messageUpdate',
@@ -7,7 +7,7 @@ module.exports = {
 		const client = newMessage.client
 		const user = newMessage.user
 
-		if(newMessage.guild.id != guildId) {
+		if(newMessage.guild.id != botIDs.guild) {
 			return;
 		}
 		
@@ -34,13 +34,13 @@ module.exports = {
 				embed0.addFields({ name: 'Content', value: 'Message content was not cached so it cannot be displayed'})
 			}
 			embed0.setTimestamp();
-		client.channels.cache.get(logsID).send({ embeds: [embed0], components: [row] })
+		client.channels.cache.get(botIDs.logs).send({ embeds: [embed0], components: [row] })
 		if(newMessage.cleanContent.length > 1024) {
 			const embed2 = new EmbedBuilder()
 				.setTitle("Message Content")
 				.setColor(embedColor)
 				.setDescription(newMessage.cleanContent)
-			client.channels.cache.get(logsID).send({ embeds: [embed2] })
+			client.channels.cache.get(botIDs.logs).send({ embeds: [embed2] })
 		}
 		return;
 	}

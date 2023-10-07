@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder, ChannelType, PermissionFlagsBits } = require('discord.js')
-const { embedColor, ownerID, botIDs } = require('../config');
+const { embedColor, botIDs } = require('.../config');
 
 module.exports = {
 	data: new SlashCommandBuilder()

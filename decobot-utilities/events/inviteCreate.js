@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, ownerID, logsID, guildId } = require('../config');
+const { embedColor, botIDs } = require('.../config');
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
 
@@ -34,7 +34,7 @@ module.exports = {
 				embed.setDescription("An invite was created by "+inviter+", it will end <t:"+inviteEnd+":R> and has "+invite.maxUses+" max uses\nhttps://discord.gg/"+invite.code);
 			}
 			embed.setTimestamp();
-		client.channels.cache.get(logsID).send({ embeds: [embed] });
+		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] });
 		return;
 	},
 };
