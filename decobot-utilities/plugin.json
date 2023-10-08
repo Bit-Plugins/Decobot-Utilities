@@ -2,7 +2,8 @@
     "name": "Decobot Utilities",
     "developer": "Robin Painter",
     "version": "1.0.0",
-    "support": "https://github.com/Bit-Plugins/Decobot-Utilities",
-    "events": true,
-    "commands": true
+    "support": "https://github.com/Bit-Plugins/Decobot-Utilities/issues",
+    "updateURL": "https://cdn.lockyzdev.net/bit/plugins/decobot/update.json",
+    "events": "true",
+    "commands": "true"
 }
