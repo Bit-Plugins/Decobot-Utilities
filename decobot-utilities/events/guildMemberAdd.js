@@ -29,8 +29,8 @@ module.exports = {
 				textAlign: "center",
 				fontSize: "50",
 				font: "Arial",
-				colour: "#e2c522",
-				borderColour: "#3e6ab4",
+				colour: embedColours.main,
+				borderColour: embedColours.secondary,
 				text: "Welcome, "+member.displayName,
 			},
 			subtitle: {
@@ -39,8 +39,8 @@ module.exports = {
 				textAlign: "center",
 				fontSize: "30",
 				font: "Arial",
-				colour: "#e2c522",
-				borderColour: "#3e6ab4",
+				colour: embedColours.main,
+				borderColour: embedColours.secondary,
 				text: "to "+member.guild.name+"!",
 			},
 		}
@@ -85,14 +85,6 @@ module.exports = {
 		avatar.src = Buffer.from(await body.arrayBuffer());
 		context.drawImage(avatar, xOffset, yOffset-50, 100, 100);
 
-		//context.font = '48px serif';
-		//context.fillStyle = '#ffffff';
-		//context.fillText('Profile', canvas.width / 2.5, canvas.height / 3.5);
-
-		//context.font = applyText(canvas, `Welcome, ${member.username} to ${member.guild.name}!`);
-		//context.fillStyle = '#ffffff';
-		//context.fillText(`Welcome, ${member.username} to ${member.guild.name}!`, canvas.width / 2, canvas.height / 2);
-
 		const attachment = new AttachmentBuilder(canvas.toBuffer('image/png'), { name: 'profile-image.png' });
 
 		const embed = new EmbedBuilder()
@@ -100,30 +92,9 @@ module.exports = {
 			.setDescription("A user named <@"+user.id+"> joined the server.")
 			.setFooter({ text: 'User ID '+ user.id })
 			.setTimestamp();
-		client.channels.cache.get("898761298412728331").send({ embeds: [embed] })
-		
-		/*const embed2 = new EmbedBuilder()
-			.setDescription('# Welcome <@'+user.id+'> to '+member.guild.name)
-			.setTimestamp();*/
-		client.channels.cache.get("835464489821405238").send({ content: 'Welcome <@'+member.user.id+'>', files: [attachment] })
-		return;
-
-		/*var logsID = '683458185763225617'
-		var botIDs.welcome = '683458023636860981'
-
-		const embed = new EmbedBuilder()
-			.setTitle('Member Joined | '+user.username, user.avatarURL())
-			.setDescription("Member <@"+user.id+"> joined "+member.guild.name)
-			.setColor(embedColor)
-			.setFooter({ text: 'User ID '+ user.id })
-			.setTimestamp();
 		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
-		
-		const embed2 = new EmbedBuilder()
-            .setDescription("Welcome to " + member.guild.name + ", make sure to read <#889441596683190332>\nDO NOT ask for updates or backports")
-            .setColor(embedColor)
-            .setTimestamp()
-		client.channels.cache.get(botIDs.welcome).send({ content: 'Welcome <@'+member.id+'>', embeds: [embed2]})
-		return;*/
+
+		client.channels.cache.get(botIDs.welcome).send({ content: 'Welcome <@'+member.user.id+'>', files: [attachment] })
+		return;
 	}
 }
