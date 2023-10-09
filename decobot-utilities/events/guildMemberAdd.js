@@ -17,7 +17,7 @@ module.exports = {
 		const canvas = createCanvas(700, 250);
 		const context = canvas.getContext('2d');
 
-		const background = await readFile('./plugins/decobot-utilities/assets/images/unity.png');
+		const background = await readFile('./plugins/decobot-utilities/assets/images/welcomeBackground.png');
 		const backgroundImage = new Image();
 		backgroundImage.src = background;
 		context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
@@ -29,8 +29,8 @@ module.exports = {
 				textAlign: "center",
 				fontSize: "50",
 				font: "Arial",
-				colour: embedColours.main,
-				borderColour: embedColours.secondary,
+				colour: "#FFFFFF",
+				borderColour: "#000000",
 				text: "Welcome, "+member.displayName,
 			},
 			subtitle: {
@@ -39,8 +39,8 @@ module.exports = {
 				textAlign: "center",
 				fontSize: "30",
 				font: "Arial",
-				colour: embedColours.main,
-				borderColour: embedColours.secondary,
+				colour: "#FFFFFF",
+				borderColour: "#000000",
 				text: "to "+member.guild.name+"!",
 			},
 		}
@@ -64,7 +64,7 @@ module.exports = {
 		context.fillText(welcomeText.subtitle.text, welcomeText.subtitle.x, welcomeText.subtitle.y);
 		//const text = formatTitle(welcomeText.title)
 
-		context.strokeStyle = '#0099ff';
+		context.strokeStyle = embedColours.main;
 		context.strokeRect(0, 0, canvas.width, canvas.height);
 
 		const xOffset = canvas.width/2 - 100/2;
