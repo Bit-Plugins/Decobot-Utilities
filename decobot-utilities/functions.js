@@ -1,6 +1,6 @@
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
-const sql1 = new SQLite('../globalDBs/commandMetrics.sqlite');
+//const sql1 = new SQLite('../globalDBs/commandMetrics.sqlite');
 const { EmbedBuilder } = require('discord.js');
 const config = require("./config");
 
@@ -174,7 +174,7 @@ module.exports = {
     },
 
     commandMetrics: function(client, commandName, serverID, userID) {
-        client.getGlobal = sql1.prepare("SELECT * FROM global WHERE name = ?");
+        /*client.getGlobal = sql1.prepare("SELECT * FROM global WHERE name = ?");
         client.setGlobal = sql1.prepare("INSERT OR REPLACE INTO global (name, uses, users, servers) VALUES (@name, @uses, @users, @servers);");
 
         client.getGuild = sql1.prepare("SELECT * FROM perGuild WHERE name = ? AND serverid = ?")
@@ -216,6 +216,8 @@ module.exports = {
             client.setUser.run(users);
         }
 
-        client.setGlobal.run(global);
+        client.setGlobal.run(global);*/
+        console.log("Command Metrics is deprecated and has been removed from this release.")
+        return true;
     }
 };

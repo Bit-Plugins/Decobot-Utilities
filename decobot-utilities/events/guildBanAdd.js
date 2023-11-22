@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, botIDs } = require('./config');
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	name: 'guildBanAdd',
@@ -18,7 +18,7 @@ module.exports = {
 		}
 
 		const embed = new EmbedBuilder()
-			.setColor(embedColor)
+			.setColor(embedColours.positive)
 			.setDescription("A user named "+ban.user.username+" was banned"+banReason)
 			embed.setTimestamp()
 		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })

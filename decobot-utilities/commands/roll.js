@@ -2,6 +2,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js')
 const { commandMetrics } = require('../functions.js')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -72,12 +73,14 @@ module.exports = {
         if(count === 1) {
             const embed = new MessageEmbed()
                 .setTitle(locale.diceEmbedName)
+                .setColor(embedColours.main)
                 .setDescription(locale.diceEmbedDescriptionSingle.replace('{sides}', soods.toString()).replace('{number}', Math.round(Math.random() * (soods - 1) + 1).toString()))
                 .setTimestamp()
             return interaction.reply({ embeds: [embed] });
         } else if(count >= 2) {
             const embed = new MessageEmbed()
                 .setTitle(locale.diceEmbedName)
+                .setColor(embedColours.main)
                 .setDescription(locale.diceEmbedDescription.replace('{sides}', count.toString()))
                 .setTimestamp()
             var times = count;

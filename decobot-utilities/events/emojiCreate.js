@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, botIDs } = require('./config');
+const { embedColours, botIDs } = require('./config');
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
 
@@ -9,7 +9,7 @@ module.exports = {
         const client = emoji.client
 
 		const embed = new EmbedBuilder()
-			.setColor(embedColor)
+			.setColor(embedColours.positive)
 			.setDescription("An emoji named "+emoji.name+" was created <:"+emoji.name+":"+emoji.id+">")
 			.setFooter({ text: 'Emoji ID '+emoji.id })
 			.setTimestamp();

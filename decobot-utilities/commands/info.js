@@ -4,6 +4,7 @@ const moment = require('moment');
 require('moment-duration-format');
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -31,6 +32,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle('Decobot')
+            .setColor(embedColours.main)
             .setDescription('**Decobot** is a multipurpose Discord Bot created for the Decocraft Discord Server.')
             .addFields([
                 { name: "Support", value: "https://discord.gg/NgpN3YYbMM", inline: true },

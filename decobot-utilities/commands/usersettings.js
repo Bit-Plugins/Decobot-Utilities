@@ -1,5 +1,6 @@
 const { PermissionsBitField, EmbedBuilder, InviteGuild, ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, SlashCommandBuilder } = require('discord.js')
 const { commandMetrics } = require('../functions.js')
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	data: new SlashCommandBuilder()

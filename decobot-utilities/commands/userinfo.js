@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, Message, ButtonStyle } = require('discord.js')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -50,6 +51,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle('User Info')
+            .setColor(embedColours.main)
             .setThumbnail(user.avatarURL())
             .addFields({ name: 'Username', value: user.username, inline:  true })
             if(member.nickname != null) {

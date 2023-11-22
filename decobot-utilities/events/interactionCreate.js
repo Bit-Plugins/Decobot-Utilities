@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, ownerID } = require('./config');
+const { embedColours, ownerID } = require('./config');
 const SQLite = require("better-sqlite3");
 const messageUpdate = require('../logging/messageUpdate');
 const sql = new SQLite('./bot.sqlite');
@@ -27,16 +27,18 @@ module.exports = {
                 if(interaction.values.includes('game_night')) {
                     if(member.roles.cache.has('757851094260121671')) {
                         member.roles.remove('757851094260121671')
-                        interaction.reply({ content: 'Done, removed the Game Night role', ephemeral: true })
+                        interaction.reply({ content: 'Done, removed the Game Night role\n\nHEY guess what? We have the channels and roles feature setup now, feel free to set roles through that now :)', ephemeral: true })
                         const embed = new EmbedBuilder()
                             .setTitle("Role Taken | "+interaction.user.username)
+                            .setColor(embedColours.negative)
                             .setDescription("Took the Game Night role from "+interaction.user.username)
                         client.channels.cache.get("683458185763225617").send({ embeds: [embed] });
                     } else {
                         member.roles.add('757851094260121671')
-                        interaction.reply({ content: 'Done, gave you the Game Night role', ephemeral: true })
+                        interaction.reply({ content: 'Done, gave you the Game Night role\n\nHEY guess what? We have the channels and roles feature setup now, feel free to set roles through that now :)', ephemeral: true })
                         const embed = new EmbedBuilder()
                             .setTitle("Role Given | "+interaction.user.username)
+                            .setColor(embedColours.positive)
                             .setDescription("Gave "+interaction.user.username+" the Game Night role")
                         client.channels.cache.get("683458185763225617").send({ embeds: [embed] });
                     }
@@ -45,16 +47,18 @@ module.exports = {
                 if(interaction.values.includes('poll_pings')) {
                     if(member.roles.cache.has('1081417626548453378')) {
                         member.roles.remove('1081417626548453378')
-                        interaction.reply({ content: 'Done, removed the Poll Pings role', ephemeral: true })
+                        interaction.reply({ content: 'Done, removed the Poll Pings role\n\nHEY guess what? We have the channels and roles feature setup now, feel free to set roles through that now :)', ephemeral: true })
                         const embed = new EmbedBuilder()
                             .setTitle("Role Taken | "+interaction.user.username)
+                            .setColor(embedColours.negative)
                             .setDescription("Took the Poll Pings role from "+interaction.user.username)
                         client.channels.cache.get("683458185763225617").send({ embeds: [embed] });
                     } else {
                         member.roles.add('1081417626548453378')
-                        interaction.reply({ content: 'Done, gave you the Poll Pings role', ephemeral: true })
+                        interaction.reply({ content: 'Done, gave you the Poll Pings role\n\nHEY guess what? We have the channels and roles feature setup now, feel free to set roles through that now :)', ephemeral: true })
                         const embed = new EmbedBuilder()
                             .setTitle("Role Given | "+interaction.user.username)
+                            .setColor(embedColours.positive)
                             .setDescription("Gave "+interaction.user.username+" the Poll Pings role")
                         client.channels.cache.get("683458185763225617").send({ embeds: [embed] });
                     }
@@ -63,16 +67,18 @@ module.exports = {
                 if(interaction.values.includes('announcement')) {
                     if(member.roles.cache.has('757851288577900554')) {
                         member.roles.remove('757851288577900554')
-                        interaction.reply({ content: 'Done, removed the Announcement Ping role', ephemeral: true })
+                        interaction.reply({ content: 'Done, removed the Announcement Ping role\n\nHEY guess what? We have the channels and roles feature setup now, feel free to set roles through that now :)', ephemeral: true })
                         const embed = new EmbedBuilder()
                             .setTitle("Role Taken | "+interaction.user.username)
+                            .setColor(embedColours.negative)
                             .setDescription("Took the Announcement ping role from "+interaction.user.username)
                         client.channels.cache.get("683458185763225617").send({ embeds: [embed] });
                     } else {
                         member.roles.add('757851288577900554')
-                        interaction.reply({ content: 'Done, gave you the Announcement Ping role', ephemeral: true })
+                        interaction.reply({ content: 'Done, gave you the Announcement Ping role\n\nHEY guess what? We have the channels and roles feature setup now, feel free to set roles through that now :)', ephemeral: true })
                         const embed = new EmbedBuilder()
                             .setTitle("Role Given | "+interaction.user.username)
+                            .setColor(embedColours.positive)
                             .setDescription("Gave "+interaction.user.username+" the Announcement Ping role")
                         client.channels.cache.get("683458185763225617").send({ embeds: [embed] });
                     }
@@ -81,16 +87,18 @@ module.exports = {
                 if(interaction.values.includes('giveaway')) {
                     if(member.roles.cache.has('763227657553969212')) {
                         member.roles.remove('763227657553969212')
-                        interaction.reply({ content: 'Done, removed the giveaway role', ephemeral: true })
+                        interaction.reply({ content: 'Done, removed the giveaway role\n\nHEY guess what? We have the channels and roles feature setup now, feel free to set roles through that now :)', ephemeral: true })
                         const embed = new EmbedBuilder()
                             .setTitle("Role Taken | "+interaction.user.username)
+                            .setColor(embedColours.negative)
                             .setDescription("Took the giveaway role from "+interaction.user.username)
                         client.channels.cache.get("683458185763225617").send({ embeds: [embed] });
                     } else {
                         member.roles.add('763227657553969212')
-                        interaction.reply({ content: 'Done, gave you the giveaway role', ephemeral: true })
+                        interaction.reply({ content: 'Done, gave you the giveaway role\n\nHEY guess what? We have the channels and roles feature setup now, feel free to set roles through that now :)', ephemeral: true })
                         const embed = new EmbedBuilder()
                             .setTitle("Role Given | "+interaction.user.username)
+                            .setColor(embedColours.positive)
                             .setDescription("Gave "+interaction.user.username+" the giveaway role")
                         client.channels.cache.get("683458185763225617").send({ embeds: [embed] });
                     }

@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Client, Collection, Intents } = require('discord.js');
 const fs = require('fs');
 const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } = require('discord.js')
-const { embedColor, botIDs } = require('./config');
+const { embedColours, botIDs } = require('./config');
 const locale = require('./plugins/decobot-utilities/locale/en.json');
 const { group } = require('console');
 const SQLite = require("better-sqlite3");
@@ -62,7 +62,7 @@ module.exports = {
                 const embed = new EmbedBuilder()
                     .setTitle("Command List")
                     .setDescription("All the commands and command Keys in this bot")
-                    .setColor(embedColor);
+                    .setColor(embedColours.main)
                 for(const data of cmds) {
                     embed.addField('\u200b', data.id+'>'+data.name);
                 }

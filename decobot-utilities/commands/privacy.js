@@ -3,6 +3,7 @@ const { commandMetrics } = require('../functions.js')
 const locale = require('./plugins/decobot-utilities/locale/en.json')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	data: new SlashCommandBuilder()

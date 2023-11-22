@@ -3,6 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js')
 const locale = require('./plugins/decobot-utilities/locale/en.json')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -100,6 +101,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle(locale.magicBallName)
                 .setDescription(locale.magicBallDescription)
+                .setColor(embedColours.main)
                 .addFields([
                     { name: question, value: answer[1] }
                 ])
@@ -112,6 +114,7 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setTitle(locale.magicBallName)
             .setDescription(locale.magicBallDescription)
+            .setColor(embedColours.main)
             .addFields([
                 { name: question, value: answer[1] }
             ])

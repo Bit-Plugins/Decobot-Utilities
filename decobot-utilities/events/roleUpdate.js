@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, botIDs } = require('./config');
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	name: 'roleUpdate',
@@ -33,6 +33,18 @@ module.exports = {
 					if(ncolor !== ocolor) {
 						if(ncolor) {
 							embed.setColor(ncolor)
+						} else {
+							if(ocolor) {
+								embed.setColor(ocolor)
+							} else {
+								embed.setColor(embedColours.neutral)
+							}
+						}
+					} else {
+						if(ocolor) {
+							embed.setColor(ocolor)
+						} else {
+							embed.setColor(embedColours.neutral)
 						}
 					}
 					if(nhoist !== ohoist) {

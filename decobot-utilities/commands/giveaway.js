@@ -4,6 +4,7 @@ const ms = require("ms");
 const locale = require('./plugins/decobot-utilities/locale/en.json')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -469,7 +470,7 @@ module.exports = {
                         enabled: true,
                         content: locale.giveawayLastChance,
                         threshold: 5000,
-                        embedColor: '#FF0000'
+                        embedColor: embedColours.main
                     },
 	                messages: {
 		                inviteToParticipate: 'React with '+reactoon+' to participate!',

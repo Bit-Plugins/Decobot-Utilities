@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, botIDs } = require('./config');
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	name: 'messageDelete',
@@ -11,7 +11,7 @@ module.exports = {
 		}
 
 		const embed0 = new EmbedBuilder()
-			.setColor(embedColor)
+			.setColor(embedColours.negative)
 			.setDescription("A message by <@"+message.author.id+"> in <#"+message.channel.id+"> was deleted")
 			if(message.cleanContent.length > 1024) {
 				embed0.addFields({name: 'Content', value: 'Message Content is over 1024 lines, it\'s in a new embed', inline: false })
@@ -25,7 +25,7 @@ module.exports = {
 		if(message.cleanContent.length > 1024) {
 			const embed1 = new EmbedBuilder()
 				.setTitle("Message Deleted | Message Content")
-				//.setColor(embedColor)
+				.setColor(embedColours.negative)
 				.setDescription(message.cleanContent)
 			client.channels.cache.get(botIDs.logs).send({ embeds: [embed1] })
 		}

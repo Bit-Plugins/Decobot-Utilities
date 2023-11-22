@@ -2,6 +2,7 @@ const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('disc
 const { commandMetrics } = require('../functions.js')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -34,6 +35,7 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setTitle('Server Info')
             .setThumbnail(guild.iconURL())
+            .setColor(embedColours.main)
             if(guild.description != null) {
                 embed.setDescription(guild.description)
             }

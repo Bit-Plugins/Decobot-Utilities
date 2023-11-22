@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, botIDs } = require('./config');
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	name: 'channelCreate',
@@ -60,7 +60,7 @@ module.exports = {
 		}
 		
 		const embed = new EmbedBuilder()
-			.setColor(embedColor)
+			.setColor(embedColours.positive)
 			if(isThread) {
 				embed.setDescription("A thread named "+channel.name)
 			} else {

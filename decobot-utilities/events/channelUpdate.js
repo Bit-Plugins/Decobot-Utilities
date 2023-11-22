@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColor, botIDs } = require('./config');
+const { embedColours, botIDs } = require('./config');
 
 module.exports = {
 	name: 'channelUpdate',
@@ -74,7 +74,7 @@ module.exports = {
 
 		if( nname !== oname || nparent !== oparent || ntype !== otype ) {
 			const embed = new EmbedBuilder()
-				.setColor(embedColor)
+				.setColor(embedColours.neutral)
 				.setDescription('A channel '+oldChannel.name+' of type '+oldChannel.type+categoryText)
 
 			if(newChannel.name) {
