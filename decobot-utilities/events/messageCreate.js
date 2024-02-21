@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { EmbedBuilder } = require('discord.js');
-const { embedColours } = require('../info');
+const { embedColours } = require('../config.json');
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./plugins/decobot-utilities/bot.sqlite');
 

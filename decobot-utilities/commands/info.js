@@ -20,7 +20,7 @@ module.exports = {
 		})*/
         .setDMPermission(false),
 	async execute(interaction) {
-        commandMetrics(interaction.client, "info", interaction.guild.id, interaction.user.id)
+        //commandMetrics(interaction.client, "info", interaction.guild.id, interaction.user.id)
         const client = interaction.client
         
         var d = new Date();
