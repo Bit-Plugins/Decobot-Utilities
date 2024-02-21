@@ -2,7 +2,7 @@ const SQLite = require("better-sqlite3");
 const sql = new SQLite('./plugins/decobot-utilities/bot.sqlite');
 //const sql1 = new SQLite('../globalDBs/commandMetrics.sqlite');
 const { EmbedBuilder } = require('discord.js');
-const config = require("./config");
+const config = require("../config");
 
 module.exports = {
     logFunction: function(client, channelID, userID, logDescription, logType, sendToConsole, sendToLogChannel){
