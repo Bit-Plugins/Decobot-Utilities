@@ -6,7 +6,7 @@ const { embedColours, botIDs } = require('../config');
 const locale = require('../locale/en.json');
 const { group } = require('console');
 const SQLite = require("better-sqlite3");
-const sql = new SQLite('../plugins/decobot-utilities/bot.sqlite');
+const sql = new SQLite('./plugins/decobot-utilities/bot.sqlite');
 
 module.exports = {
 	data: new SlashCommandBuilder()
