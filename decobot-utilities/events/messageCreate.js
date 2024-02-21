@@ -17,16 +17,6 @@ module.exports = {
         client.setUsSett = sql.prepare("INSERT OR REPLACE INTO userSettings (userID, userAccess, language) VALUES (@userID, @userAccess, @language);");
         let userset = client.getUsSett.get(message.author.id)
 
-        if(message.channel.id === '875652753924448306') {
-            if(message.author.id === '835394949612175380') {
-                const embed = new EmbedBuilder()
-                    .setTitle('New Message from Lockyz Dev')
-                    .setColor(embedColours.main)
-                    .setDescription(message.cleanContent)
-                client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
-            }
-        }
-
         if(!userset) {
             userset = { userID: message.author.id, userAccess: 'false', language: 'en' };
             client.setUsSett.run(userset);
@@ -60,16 +50,6 @@ module.exports = {
                     .setAuthor(`BOOST LEVEL 3`, message.guild.iconURL())
                     .setDescription('Thanks for Boosting and getting us to Level Three')
                 client.channels.cache.get(boostID).send({ content: message.author, embeds: [embed] });
-            }
-        
-            if(message.type === 'GUILD_MEMBER_JOIN') {
-                const embed = new EmbedBuilder()
-                    .setAuthor("Member Verified | "+message.member.user.username, message.member.user.avatarURL())
-                    .setColor(embedColours.positive)
-                    .setTimestamp()
-                    .setFooter('User ID '+ message.member.id)
-                    .setTimestamp();
-                client.channels.cache.get(botIDs.logs).send({ embeds: [embed] });
             }
         }
         

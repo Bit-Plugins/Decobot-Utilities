@@ -3,6 +3,8 @@ const { embedColours, botIDs } = require('../config');
 const { createCanvas, Image, GlobalFonts } = require('@napi-rs/canvas');
 const { readFile } = require('fs/promises');
 const { request } = require('undici');
+const SQLite = require("better-sqlite3");
+const sql = new SQLite('./bot.sqlite');
 
 module.exports = {
 	name: 'guildMemberAdd',
@@ -13,6 +15,15 @@ module.exports = {
 		if(member.guild.id != botIDs.guild) {
 			return;
 		}
+
+		client.getUsSett = sql.prepare("SELECT * FROM userSettings WHERE userID = ?");
+        client.setUsSett = sql.prepare("INSERT OR REPLACE INTO userSettings (userID, userAccess, language) VALUES (@userID, @userAccess, @language);");
+        let userset = client.getUsSett.get(user.id)
+
+        if(!userset) {
+            userset = { userID: user.id, userAccess: 'false', language: 'en' };
+            client.setUsSett.run(userset);
+        }
 
 		const canvas = createCanvas(700, 250);
 		const context = canvas.getContext('2d');
@@ -87,14 +98,7 @@ module.exports = {
 
 		const attachment = new AttachmentBuilder(canvas.toBuffer('image/png'), { name: 'profile-image.png' });
 
-		const embed = new EmbedBuilder()
-			.setColor(embedColours.main)
-			.setDescription("A user named <@"+user.id+"> joined the server.")
-			.setFooter({ text: 'User ID '+ user.id })
-			.setTimestamp();
-		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
-
-		client.channels.cache.get(botIDs.welcome).send({ content: 'Welcome <@'+member.user.id+'>', files: [attachment] })
+		client.channels.cache.get(botIDs.welcome).send({ content: 'Welcome <@'+user.id+'>', files: [attachment] })
 		return;
 	}
 }
