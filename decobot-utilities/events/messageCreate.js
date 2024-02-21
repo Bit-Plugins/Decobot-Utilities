@@ -2,7 +2,7 @@ const fs = require('fs');
 const { EmbedBuilder } = require('discord.js');
 const { embedColours } = require('../info');
 const SQLite = require("better-sqlite3");
-const sql = new SQLite('./bot.sqlite');
+const sql = new SQLite('./plugins/decobot-utilities/bot.sqlite');
 
 module.exports = {
 	name: 'messageCreate',

@@ -3,7 +3,7 @@ const { commandMetrics } = require('../functions.js')
 const moment = require('moment');
 require('moment-duration-format');
 const SQLite = require("better-sqlite3");
-const sql = new SQLite('./bot.sqlite');
+const sql = new SQLite('./plugins/decobot-utilities/bot.sqlite');
 const { embedColours, botIDs } = require('./config');
 
 module.exports = {

@@ -3,7 +3,7 @@ const SQLite = require("better-sqlite3");
 const { EmbedBuilder, ModalBuilder, ActionRowBuilder, TextInputComponent, TextInputBuilder, ButtonBuilder, ButtonStyle } = require('discord.js')
 const { embedColours, botIDs } = require('./config');
 const { version } = require('../info');
-const sql = new SQLite('./bot.sqlite');
+const sql = new SQLite('./plugins/decobot-utilities/bot.sqlite');
 
 module.exports = {
 	data: new SlashCommandBuilder()

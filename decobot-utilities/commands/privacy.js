@@ -1,9 +1,9 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, Message, ButtonStyle, SlashCommandBuilder } = require('discord.js')
 const { commandMetrics } = require('../functions.js')
-const locale = require('./plugins/decobot-utilities/locale/en.json')
+const locale = require('../locale/en.json')
 const SQLite = require("better-sqlite3");
-const sql = new SQLite('./bot.sqlite');
-const { embedColours, botIDs } = require('./config');
+const sql = new SQLite('./plugins/decobot-utilities/bot.sqlite');
+const { embedColours, botIDs } = require('../config');
 
 module.exports = {
 	data: new SlashCommandBuilder()

@@ -1,5 +1,5 @@
 const SQLite = require("better-sqlite3");
-const sql = new SQLite('./bot.sqlite');
+const sql = new SQLite('./plugins/decobot-utilities/bot.sqlite');
 //const sql1 = new SQLite('../globalDBs/commandMetrics.sqlite');
 const { EmbedBuilder } = require('discord.js');
 const config = require("./config");

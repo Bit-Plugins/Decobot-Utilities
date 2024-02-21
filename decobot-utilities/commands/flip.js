@@ -1,9 +1,9 @@
 const { commandMetrics } = require('../functions.js')
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js')
-const locale = require('./plugins/decobot-utilities/locale/en.json')
+const locale = require('../locale/en.json')
 const SQLite = require("better-sqlite3");
-const sql = new SQLite('./bot.sqlite');
-const { embedColours, botIDs } = require('./config');
+const sql = new SQLite('./plugins/decobot-utilities/bot.sqlite');
+const { embedColours, botIDs } = require('../config');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -85,7 +85,7 @@ module.exports = {
                 .setTitle(locale.flipEmbedTitle)
                 .setDescription(locale.flipDescription.replace('{answer}', answer))
                 .setColor(embedColours.main)
-                .setImage("https://cdn.lockyzdev.net/botcommands/flip/"+answer1+".jpg")
+                .setImage("https://cdn.lockyzmedia.com/botcommands/flip/"+answer1+".jpg")
                 .setFooter({ text: coinName })
                 .setTimestamp();
             interaction.reply({ embeds: [embed] })

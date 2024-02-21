@@ -2,11 +2,11 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Client, Collection, Intents } = require('discord.js');
 const fs = require('fs');
 const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } = require('discord.js')
-const { embedColours, botIDs } = require('./config');
-const locale = require('./plugins/decobot-utilities/locale/en.json');
+const { embedColours, botIDs } = require('../config');
+const locale = require('../locale/en.json');
 const { group } = require('console');
 const SQLite = require("better-sqlite3");
-const sql = new SQLite('./bot.sqlite');
+const sql = new SQLite('../plugins/decobot-utilities/bot.sqlite');
 
 module.exports = {
 	data: new SlashCommandBuilder()

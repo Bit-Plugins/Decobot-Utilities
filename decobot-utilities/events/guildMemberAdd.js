@@ -4,7 +4,7 @@ const { createCanvas, Image, GlobalFonts } = require('@napi-rs/canvas');
 const { readFile } = require('fs/promises');
 const { request } = require('undici');
 const SQLite = require("better-sqlite3");
-const sql = new SQLite('./bot.sqlite');
+const sql = new SQLite('./plugins/decobot-utilities/bot.sqlite');
 
 module.exports = {
 	name: 'guildMemberAdd',

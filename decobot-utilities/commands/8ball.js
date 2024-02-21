@@ -1,9 +1,9 @@
 const { commandMetrics } = require('../functions.js')
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js')
-const locale = require('./plugins/decobot-utilities/locale/en.json')
+const locale = require('../locale/en.json')
 const SQLite = require("better-sqlite3");
-const sql = new SQLite('./bot.sqlite');
-const { embedColours, botIDs } = require('./config');
+const sql = new SQLite('./plugins/decobot-utilities/bot.sqlite');
+const { embedColours, botIDs } = require('../config');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -105,7 +105,7 @@ module.exports = {
                 .addFields([
                     { name: question, value: answer[1] }
                 ])
-                .setImage('https://cdn.lockyzdev.net/botcommands/8ball/cracked/id-'+answer[0]+'.png')
+                .setImage('https://cdn.lockyzmedia.com/botcommands/8ball/cracked/id-'+answer[0]+'.png')
                 .setTimestamp();
             interaction.reply({ content: interaction.user.username+' drank the blue liquid inside the 8ball and '+drinkAnswer[1], embeds: [embed]})
             return;
@@ -118,7 +118,7 @@ module.exports = {
             .addFields([
                 { name: question, value: answer[1] }
             ])
-            .setImage("https://cdn.lockyzdev.net/botcommands/8ball/id-"+answer[0]+".png")
+            .setImage("https://cdn.lockyzmedia.com/botcommands/8ball/id-"+answer[0]+".png")
             .setTimestamp();
         interaction.reply({ embeds: [embed]})
 	}
